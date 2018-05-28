@@ -16,8 +16,7 @@ class Register extends Component {
   }
 
   onSubmit(data) {
-    console.log(data);
-    this.props.reset();
+    this.props.createBrotherhood(data, this.props.reset);
   }
 
   render() {
