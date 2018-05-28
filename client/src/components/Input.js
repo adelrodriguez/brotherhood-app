@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = field => {
+const Input = field => {
   return (
     <div>
       <label htmlFor={field.id}>{field.label}</label>{' '}
@@ -15,4 +15,4 @@ const InputField = field => {
   );
 };
 
-export default InputField;
+export default Input;

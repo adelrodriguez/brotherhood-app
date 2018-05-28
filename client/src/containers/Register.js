@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 // Components
+import Input from '../components/Input';
 import InputField from '../components/InputField';
 
 // Actions
@@ -16,7 +17,7 @@ class Register extends Component {
   }
 
   onSubmit(data) {
-    this.props.createBrotherhood(data, this.props.reset);
+    this.props.createBrotherhood(data, () => this.props.reset());
   }
 
   render() {
@@ -32,7 +33,7 @@ class Register extends Component {
             type="text"
             id="nameInput"
             placeholder="Coloque el nombre de la hermandad"
-            component={InputField}
+            component={Input}
           />
           <Field
             label="Email"
@@ -40,7 +41,7 @@ class Register extends Component {
             type="email"
             id="emailInput"
             placeholder="Coloque el email del responsable"
-            component={InputField}
+            component={Input}
           />
           <Field
             label="Fecha de creación"
@@ -48,7 +49,7 @@ class Register extends Component {
             type="date"
             id="createdInput"
             placeholder="Fecha de creación de la hermandad"
-            component={InputField}
+            component={Input}
           />
           <button>Registrar</button>
         </form>
