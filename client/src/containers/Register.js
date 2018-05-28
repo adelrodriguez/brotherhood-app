@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 
 // Components
 import Input from '../components/Input';
-import InputField from '../components/InputField';
+import Button from '../components/Button';
 
 // Actions
 import { createBrotherhood } from '../actions';
@@ -51,7 +51,7 @@ class Register extends Component {
             placeholder="Fecha de creación de la hermandad"
             component={Input}
           />
-          <button>Registrar</button>
+          <Button text="Registrar" />
         </form>
       </div>
     );
