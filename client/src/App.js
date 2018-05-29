@@ -9,6 +9,9 @@ import Login from './containers/Login';
 import Logout from './containers/Logout';
 import Auth from './containers/Auth';
 
+// Import syles
+import './App.css';
+
 class App extends Component {
   render() {
     return (
