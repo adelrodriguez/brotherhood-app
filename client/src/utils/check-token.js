@@ -5,6 +5,6 @@ export default function(store) {
 
   // If we have token, consider the user to be authenticated
   if (token) {
-    store.dispatch({ type: AUTH_USER̦ });
+    store.dispatch({ type: AUTH_USER });
   }
 }
