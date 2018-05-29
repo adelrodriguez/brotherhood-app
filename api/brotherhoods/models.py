@@ -7,7 +7,7 @@ class Brotherhood(models.Model):
     # Create a timestamp when the brotherhood is added
     registered = models.DateTimeField(auto_now_add=True)
     # Use for ordering the Brotherhoods
-    place = models.IntegerField(default=0, unique=True)
+    place = models.IntegerField(default=0)
 
     class Meta:
         ordering = ('place',)
