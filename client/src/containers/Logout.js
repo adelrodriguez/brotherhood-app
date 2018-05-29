@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import { logout } from '../actions';
 
-class Logout extends Comment {
+class Logout extends Component {
   componentWillMount() {
     this.props.logout();
   }
