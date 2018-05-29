@@ -11,22 +11,19 @@ import {
 
 const ROOT_URL = 'http://127.0.0.1:8000/brotherhoods/';
 const AUTH_URL = 'http://127.0.0.1:8000/api-token-auth/';
+const authorization = `JWT ${localStorage.getItem('token')}`;
 
 export function fetchBrotherhoods() {
   return function(dispatch) {
     axios
-      .get(`${ROOT_URL}`)
+      .get(`${ROOT_URL}`, {
+        headers: { authorization: `JWT ${localStorage.getItem('token')}` }
+      })
       .then(response => {
-        dispatch({
-          type: FETCH_BROTHERHOODS,
-          payload: response
-        });
+        dispatch({ type: FETCH_BROTHERHOODS, payload: response });
       })
       .catch(error => {
-        dispatch({
-          type: ERROR,
-          payload: error.response.data.detail
-        });
+        dispatch({ type: ERROR, payload: error.response.data.detail });
       });
   };
 }
@@ -55,20 +52,14 @@ export function createBrotherhood(data, callback) {
 export function editBrotherhood(id, data, callback) {
   return function(dispatch) {
     axios
-      .put(`${ROOT_URL}${id}/`, data)
+      .put(`${ROOT_URL}${id}/`, data, { headers: { authorization } })
       .then(response => {
-        dispatch({
-          type: EDIT_BROTHERHOOD,
-          payload: response
-        });
+        dispatch({ type: EDIT_BROTHERHOOD, payload: response });
 
         callback();
       })
       .catch(error => {
-        dispatch({
-          type: ERROR,
-          payload: error.response.data.detail
-        });
+        dispatch({ type: ERROR, payload: error.response.data.detail });
       });
   };
 }
@@ -76,20 +67,14 @@ export function editBrotherhood(id, data, callback) {
 export function deleteBrotherhood(id, callback) {
   return function(dispatch) {
     axios
-      .delete(`${ROOT_URL}${id}/`)
+      .delete(`${ROOT_URL}${id}/`, { headers: { authorization } })
       .then(response => {
-        dispatch({
-          type: DELETE_BROTHERHOOD,
-          payload: id
-        });
+        dispatch({ type: DELETE_BROTHERHOOD, payload: id });
 
         callback();
       })
       .catch(error => {
-        dispatch({
-          type: ERROR,
-          payload: error.response.data.detail
-        });
+        dispatch({ type: ERROR, payload: error.response.data.detail });
       });
   };
 }
