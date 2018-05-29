@@ -61,12 +61,12 @@ class EditItem extends Component {
             id="createdInput"
             component={Input}
           />
-          <Button text="Eliminar" handleClick={this.handleDelete} />
           <Button text="Guardar cambios" />
-          <Link to="/hermandades">
-            <Button text="Volver" />
-          </Link>
         </form>
+        <Button text="Eliminar" handleClick={this.handleDelete} />{' '}
+        <Link to="/hermandades">
+          <Button text="Volver" />
+        </Link>
       </div>
     );
   }
