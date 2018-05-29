@@ -61,6 +61,14 @@ class EditItem extends Component {
             id="createdInput"
             component={Input}
           />
+          <Field
+            label="Lugar"
+            name="place"
+            min="1"
+            type="number"
+            id="placeInput"
+            component={Input}
+          />
           <Button text="Guardar cambios" />
         </form>
         <Button text="Eliminar" handleClick={this.handleDelete} />{' '}

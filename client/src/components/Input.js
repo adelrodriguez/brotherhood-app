@@ -10,6 +10,7 @@ const Input = field => {
         id={field.id}
         placeholder={field.placeholder}
         {...field.input}
+        {...field}
       />
     </div>
   );
