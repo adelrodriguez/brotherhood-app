@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 // Components
-import ListItem from '../components/ListItem';
+import ListItem from '../containers/ListItem';
 
 // Actions
 import { fetchBrotherhoods } from '../actions';
@@ -15,13 +15,15 @@ class List extends Component {
 
   renderBrotherhoods(brotherhoods) {
     return brotherhoods.map((brotherhood, index) => {
+      const { id, name, email, created } = brotherhood;
+
       return (
         <ListItem
-          key={index}
-          id={brotherhood.id}
-          name={brotherhood.name}
-          email={brotherhood.email}
-          created={brotherhood.created}
+          key={`${index}.${id}`}
+          id={id}
+          name={name}
+          email={email}
+          created={created}
         />
       );
     });
@@ -36,7 +38,8 @@ class List extends Component {
               <th>#</th>
               <th>Hermandad</th>
               <th>Email</th>
-              <th>Fecha de creación</th>              
+              <th>Fecha de creación</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
