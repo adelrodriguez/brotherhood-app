@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-// Components
-import Header from '../components/Header';
+import Header from './Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
 

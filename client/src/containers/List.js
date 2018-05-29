@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-// Components
 import ListItem from '../containers/ListItem';
+import Header from '../containers/Header';
 
-// Actions
 import { fetchBrotherhoods } from '../actions';
 
 class List extends Component {
@@ -32,6 +31,7 @@ class List extends Component {
   render() {
     return (
       <div>
+        <Header />
         <table>
           <thead>
             <tr>
