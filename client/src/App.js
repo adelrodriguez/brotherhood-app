@@ -7,6 +7,7 @@ import List from './containers/List';
 import EditItem from './containers/EditItem';
 import Login from './containers/Login';
 import Logout from './containers/Logout';
+import Auth from './containers/Auth';
 
 class App extends Component {
   render() {
@@ -14,8 +15,8 @@ class App extends Component {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
-        <Route path="/hermandades/:id/edit" component={EditItem} />
-        <Route path="/hermandades" component={List} />
+        <Route path="/hermandades/:id/edit" component={Auth(EditItem)} />
+        <Route path="/hermandades" component={Auth(List)} />
         <Route exact path="/" component={Register} />
       </Switch>
     );
