@@ -15,7 +15,7 @@ class List extends Component {
 
   renderBrotherhoods(brotherhoods) {
     return brotherhoods.map((brotherhood, index) => {
-      const { id, name, email, created } = brotherhood;
+      const { id, name, email, created, place } = brotherhood;
 
       return (
         <ListItem
@@ -24,6 +24,7 @@ class List extends Component {
           name={name}
           email={email}
           created={created}
+          place={place}
         />
       );
     });
@@ -35,7 +36,7 @@ class List extends Component {
         <table>
           <thead>
             <tr>
-              <th>#</th>
+              <th>No.</th>
               <th>Hermandad</th>
               <th>Email</th>
               <th>Fecha de creación</th>
@@ -43,7 +44,7 @@ class List extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderBrotherhoods(_.values(this.props.brotherhoods))}
+            {this.renderBrotherhoods(_.sortBy(this.props.brotherhoods, 'place'))}
           </tbody>
         </table>
       </div>

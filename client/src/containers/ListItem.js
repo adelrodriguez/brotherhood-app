@@ -19,11 +19,11 @@ class ListItem extends Component {
 
   render() {
     const { options } = this.state;
-    const { id, name, email, created } = this.props;
+    const { id, name, email, created, place } = this.props;
 
     return (
       <tr onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
-        <td>{id}</td>
+        <td>{place}</td>
         <td>{name}</td>
         <td>{email}</td>
         <td>{created}</td>
