@@ -10,6 +10,7 @@ import {
 } from '../types';
 
 const ROOT_URL = 'http://127.0.0.1:8000/brotherhoods/';
+const AUTH_URL = 'http://127.0.0.1:8000/api-token-auth/';
 
 export function fetchBrotherhoods() {
   return function(dispatch) {
@@ -97,7 +98,7 @@ export function login(user, callback) {
   return function(dispatch) {
     // Submit email/password to the server
     axios
-      .post(`${ROOT_URL}api-token-auth`, user)
+      .post(`${AUTH_URL}`, user)
       .then(response => {
         dispatch({ type: AUTH_USER });
 
