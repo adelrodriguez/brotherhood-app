@@ -38,20 +38,22 @@ class Login extends Component {
             name="username"
             type="text"
             id="usernameInput"
-            placeholder="Coloque su clave"
+            placeholder="Coloque su usuario"
             component={Input}
           />
           <Field
             label="Contraseña"
             name="password"
-            type="email"
+            type="password"
             id="passwordInput"
             placeholder="Coloque su contraseña"
             component={Input}
           />
           <Button text="Ingresar" />
         </form>
-        <Button text="Volver" />
+        <Link to="/">
+          <Button text="Volver" />
+        </Link>
       </div>
     );
   }
