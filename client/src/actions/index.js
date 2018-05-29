@@ -5,7 +5,9 @@ import {
   FETCH_BROTHERHOOD,
   FETCH_BROTHERHOODS,
   DELETE_BROTHERHOOD,
-  EDIT_BROTHERHOOD
+  EDIT_BROTHERHOOD,
+  AUTH_USER,
+  DEAUTH_USER
 } from '../types';
 
 const ROOT_URL = 'http://127.0.0.1:8000/brotherhoods/';
@@ -90,4 +92,31 @@ export function deleteBrotherhood(id, callback) {
         });
       });
   };
+}
+
+export function login(user, callback) {
+  return function(dispatch) {
+    // Submit email/password to the server
+    axios
+      .post(`${ROOT_URL}api-token-auth`)
+      .then(response => {
+        dispatch({ type: AUTH_USER });
+
+        // Save the token to localStorage for future reference
+        localStorage.setItem('token', response.data.token);
+        callback();
+      })
+      .catch(error => {
+        dispatch({
+          type: ERROR,
+          payload: error.response.data.detail
+        });
+      });
+  };
+}
+
+export function logout() {
+  localStorage.removeItem('token');
+
+  return { type: DEAUTH_USER };
 }
