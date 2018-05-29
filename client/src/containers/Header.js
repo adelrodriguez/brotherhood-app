@@ -9,7 +9,10 @@ class Header extends Component {
     return (
       <header>
         {authenticated ? (
-          <Link to="/logout">Salir</Link>
+          <div>
+            <Link to="/hermandades">Ver Listado</Link>
+            <Link to="/logout">Salir</Link>
+          </div>
         ) : (
           <Link to="/login">Ingresar</Link>
         )}
