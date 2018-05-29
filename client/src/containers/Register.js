@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 // Components
+import Header from '../components/Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
@@ -25,6 +26,7 @@ class Register extends Component {
 
     return (
       <div>
+        <Header />
         <h1>Registrar Hermandad</h1>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <Field
@@ -60,6 +62,19 @@ class Register extends Component {
 
 function validate(data) {
   const errors = {};
+  const { name, email, created } = data;
+
+  if (!name) {
+    errors.name = 'Debes colocar un nombre';
+  }
+
+  if (!email) {
+    errors.email = 'Debes colocar un email';
+  }
+
+  if (!created) {
+    errors.created = 'Debes colocar una fecha';
+  }
 
   return errors;
 }
