@@ -97,7 +97,7 @@ export function login(user, callback) {
   return function(dispatch) {
     // Submit email/password to the server
     axios
-      .post(`${ROOT_URL}api-token-auth`)
+      .post(`${ROOT_URL}api-token-auth`, user)
       .then(response => {
         dispatch({ type: AUTH_USER });
 
