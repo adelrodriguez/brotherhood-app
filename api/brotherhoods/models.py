@@ -6,6 +6,8 @@ class Brotherhood(models.Model):
     email = models.CharField(max_length=100)
     # Create a timestamp when the brotherhood is added
     registered = models.DateTimeField(auto_now_add=True)
+    # Use for ordering the Brotherhoods
+    place = models.IntegerField(editable=False)
 
     class Meta:
-        ordering = ('registered',)
+        ordering = ('place',)
