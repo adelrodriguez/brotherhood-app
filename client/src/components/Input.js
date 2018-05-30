@@ -23,7 +23,7 @@ const Input = field => {
           {...field}
         />
       </div>
-      <p class="help is-danger">{touched ? error : ''}</p>
+      <p className="help is-danger">{touched ? error : ''}</p>
     </div>
   );
 };

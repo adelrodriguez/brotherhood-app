@@ -8,7 +8,7 @@ class Header extends Component {
 
     return (
       <nav className="navbar" aria-label="main navigation">
-        <div class="navbar-menu">
+        <div className="navbar-menu">
           <div className="navbar-end">
             {authenticated ? (
               <div className="navbar-item">
