@@ -8,7 +8,7 @@ import {
   DEAUTH_USER,
   ERROR,
   CLEAR
-} from '../types';
+} from './types';
 
 const ROOT_URL = 'http://127.0.0.1:8000/brotherhoods/';
 const AUTH_URL = 'http://127.0.0.1:8000/api-token-auth/';
