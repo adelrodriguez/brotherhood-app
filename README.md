@@ -21,7 +21,7 @@ virtualenv env
 source env/bin/activate
 ```
 
-Change into the api folder and install the requirements:
+Change into the `api` directory and install the requirements:
 
 ```bash
 cd api
@@ -48,7 +48,22 @@ python manage.py runserver
 
 #### Installing the client
 
+Change into the `client` directory and install the requirements:
+
+```bash
+cd client
+npm install
+```
+
+After that you can run the app by running:
+
+```bash
+npm start
+```
+
 ### Running the app
+
+
 
 ## Built With
 
