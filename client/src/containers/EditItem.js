@@ -65,6 +65,7 @@ class EditItem extends Component {
             label="Lugar"
             name="place"
             min="1"
+            max={Object.keys(this.props.brotherhoods).length}
             type="number"
             id="placeInput"
             component={Input}
@@ -101,6 +102,7 @@ function validate(data) {
 
 function mapStateToProps(state, ownProps) {
   return {
+    brotherhoods: state.brotherhoods,
     initialValues: state.brotherhoods[ownProps.match.params.id]
   };
 }
