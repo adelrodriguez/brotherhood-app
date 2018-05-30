@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import ListItem from '../containers/ListItem';
 import Header from '../containers/Header';
+import Alert from './Alert';
 
 import { fetchBrotherhoods } from '../actions';
 
@@ -36,6 +37,7 @@ class List extends Component {
           <Header />
           <div className="columns is-centered">
             <div className="column is-three-quarters">
+              <Alert />
               <table className="table is-hoverable is-fullwidth">
                 <thead>
                   <tr>

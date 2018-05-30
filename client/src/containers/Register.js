@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import Header from './Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import Alert from './Alert';
 
 // Actions
 import { createBrotherhood } from '../actions';
@@ -30,6 +31,7 @@ class Register extends Component {
           <div className="columns is-centered">
             <div className="column is-half">
               <h1 className="title">Registrar Hermandad</h1>
+                <Alert />
               <form onSubmit={handleSubmit(this.onSubmit)}>
                 <Field
                   label="Nombre de la hermandad"
@@ -84,13 +86,7 @@ function validate(data) {
   return errors;
 }
 
-function mapStateToProps(state) {
-  return {
-    alert: state.alert
-  };
-}
-
 export default reduxForm({
   validate,
   form: 'register'
-})(connect(mapStateToProps, { createBrotherhood })(Register));
+})(connect(null, { createBrotherhood })(Register));

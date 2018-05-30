@@ -7,6 +7,7 @@ import { login } from '../actions';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
+import Alert from './Alert';
 
 class Login extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Login extends Component {
           <div className="columns is-centered">
             <div className="column is-half">
               <h1 className="title">Ingresar a la plataforma</h1>
+              <Alert />
               <form onSubmit={handleSubmit(this.onSubmit)}>
                 <Field
                   label="Usuario"
@@ -54,12 +56,15 @@ class Login extends Component {
                 />
                 <div className="field is-grouped">
                   <p className="control">
-                    <Button className="is-success is-outlined" text="Ingresar" />
+                    <Button
+                      className="is-success is-outlined"
+                      text="Ingresar"
+                    />
                   </p>
                   <p className="control">
                     <Link to="/">
                       <Button className="is-light" text="Volver" />
-                    </Link>                       
+                    </Link>
                   </p>
                 </div>
               </form>
