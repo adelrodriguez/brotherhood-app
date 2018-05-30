@@ -63,7 +63,7 @@ npm start
 
 ### Running the app
 
-
+To run the app, open the `api` and `client` directories in two Terminal windows, and run `python manage.py runserver` for the API and `npm run` for the client. By default the API will run in `http://localhost:8000/` while the client will run in `http://localhost:3000/`.
 
 ## Built With
 
