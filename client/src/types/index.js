@@ -5,8 +5,7 @@ export const EDIT_BROTHERHOOD = 'edit_brotherhood';
 export const DELETE_BROTHERHOOD = 'delete_brotherhood';
 
 // Alerts
-export const SUCCESS = 'success';
-export const WARNING = 'warning';
+export const CLEAR = 'clear';
 export const ERROR = 'error';
 
 // Authentication
