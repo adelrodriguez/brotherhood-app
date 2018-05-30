@@ -31,22 +31,29 @@ class List extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <table>
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Hermandad</th>
-              <th>Email</th>
-              <th>Fecha de creación</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderBrotherhoods(_.sortBy(this.props.brotherhoods, 'place'))}
-          </tbody>
-        </table>
+      <div className="section">
+        <div className="container">
+          <Header />
+          <div className="columns is-centered">
+            <div className="column is-three-quarters">
+              <table className="table is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Hermandad</th>
+                    <th>Email</th>
+                    <th>Fecha de creación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.renderBrotherhoods(
+                    _.sortBy(this.props.brotherhoods, 'place')
+                  )}
+                </tbody>
+              </table>            
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
