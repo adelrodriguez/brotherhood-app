@@ -1,12 +1,13 @@
 import axios from 'axios';
 import {
   CREATE_BROTHERHOOD,
-  ERROR,
   FETCH_BROTHERHOODS,
   DELETE_BROTHERHOOD,
   EDIT_BROTHERHOOD,
   AUTH_USER,
-  DEAUTH_USER
+  DEAUTH_USER,
+  ERROR,
+  CLEAR
 } from '../types';
 
 const ROOT_URL = 'http://127.0.0.1:8000/brotherhoods/';
@@ -94,10 +95,14 @@ export function login(user, callback) {
       .catch(error => {
         dispatch({
           type: ERROR,
-          payload: error.response.data.detail
+          payload: 'Usuario y/o contraseña incorrectos'
         });
       });
   };
+}
+
+export function clearAlert() {
+  return { type: CLEAR };
 }
 
 export function logout() {
