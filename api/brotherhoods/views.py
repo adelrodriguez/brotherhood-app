@@ -15,12 +15,3 @@ class BrotherhoodList(generics.ListCreateAPIView):
 class BrotherhoodDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Brotherhood.objects.all()
     serializer_class = BrotherhoodSerializer
-
-    # def perform_update(self, serializer):
-    #     old_data = self.get_object()
-    #     prev_place = old_data.place
-    #     new_place = self.request.data['place']
-
-    #     queryset = Brotherhood.objects.filter(place__range=(prev_place, new_place))
-    #     print(len(queryset))
-    #     serializer.save()
