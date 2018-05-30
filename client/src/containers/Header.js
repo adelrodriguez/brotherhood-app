@@ -7,16 +7,34 @@ class Header extends Component {
     const { authenticated } = this.props;
 
     return (
-      <header>
-        {authenticated ? (
-          <div>
-            <Link to="/hermandades">Ver Listado</Link>
-            <Link to="/logout">Salir</Link>
+      <nav className="navbar" aria-label="main navigation">
+        <div class="navbar-menu">
+          <div className="navbar-end">
+            {authenticated ? (
+              <div className="navbar-item">
+                <div className="field is-grouped">
+                  <p className="control">
+                    <Link className="button" to="/hermandades">
+                      Ver Listado
+                    </Link>
+                  </p>
+                  <p className="control">
+                    <Link className="button" to="/logout">
+                      Salir
+                    </Link>    
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="navbar-item">
+                <Link className="button" to="/login">
+                  Ingresar
+                </Link>
+              </div>
+            )}
           </div>
-        ) : (
-          <Link to="/login">Ingresar</Link>
-        )}
-      </header>
+        </div>
+      </nav>
     );
   }
 }

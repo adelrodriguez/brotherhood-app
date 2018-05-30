@@ -24,36 +24,42 @@ class Register extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div>
-        <Header />
-        <h1>Registrar Hermandad</h1>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <Field
-            label="Nombre de la hermandad"
-            name="name"
-            type="text"
-            id="nameInput"
-            placeholder="Coloque el nombre de la hermandad"
-            component={Input}
-          />
-          <Field
-            label="Email"
-            name="email"
-            type="email"
-            id="emailInput"
-            placeholder="Coloque el email del responsable"
-            component={Input}
-          />
-          <Field
-            label="Fecha de creación"
-            name="created"
-            type="date"
-            id="createdInput"
-            placeholder="Fecha de creación de la hermandad"
-            component={Input}
-          />
-          <Button text="Registrar" />
-        </form>
+      <div className="section">
+        <div className="container">
+          <Header />
+          <div className="columns is-centered">
+            <div className="column is-half">
+              <h1 className="title">Registrar Hermandad</h1>
+              <form onSubmit={handleSubmit(this.onSubmit)}>
+                <Field
+                  label="Nombre de la hermandad"
+                  name="name"
+                  type="text"
+                  id="nameInput"
+                  placeholder="Coloque el nombre de la hermandad"
+                  component={Input}
+                />
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  id="emailInput"
+                  placeholder="Coloque el email del responsable"
+                  component={Input}
+                />
+                <Field
+                  label="Fecha de creación"
+                  name="created"
+                  type="date"
+                  id="createdInput"
+                  placeholder="Fecha de creación de la hermandad"
+                  component={Input}
+                />
+                <Button className="is-primary is-outlined" text="Registrar" />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

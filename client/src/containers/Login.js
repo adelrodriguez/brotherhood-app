@@ -30,30 +30,42 @@ class Login extends Component {
     }
 
     return (
-      <div>
-        <h1>Ingresar a plataforma</h1>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <Field
-            label="Usuario"
-            name="username"
-            type="text"
-            id="usernameInput"
-            placeholder="Coloque su usuario"
-            component={Input}
-          />
-          <Field
-            label="Contraseña"
-            name="password"
-            type="password"
-            id="passwordInput"
-            placeholder="Coloque su contraseña"
-            component={Input}
-          />
-          <Button text="Ingresar" />
-        </form>
-        <Link to="/">
-          <Button text="Volver" />
-        </Link>
+      <div className="section">
+        <div className="container">
+          <div className="columns is-centered">
+            <div className="column is-half">
+              <h1 className="title">Ingresar a la plataforma</h1>
+              <form onSubmit={handleSubmit(this.onSubmit)}>
+                <Field
+                  label="Usuario"
+                  name="username"
+                  type="text"
+                  id="usernameInput"
+                  placeholder="Coloque su usuario"
+                  component={Input}
+                />
+                <Field
+                  label="Contraseña"
+                  name="password"
+                  type="password"
+                  id="passwordInput"
+                  placeholder="Coloque su contraseña"
+                  component={Input}
+                />
+                <div className="field is-grouped">
+                  <p className="control">
+                    <Button className="is-success is-outlined" text="Ingresar" />
+                  </p>
+                  <p className="control">
+                    <Link to="/">
+                      <Button className="is-light" text="Volver" />
+                    </Link>                       
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
