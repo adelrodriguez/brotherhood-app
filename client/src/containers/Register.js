@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import ReCAPTCHA from 'react-recaptcha';
 
 import Header from './Header';
 import Input from '../components/Input';
@@ -10,15 +11,26 @@ import Alert from './Alert';
 // Actions
 import { createBrotherhood } from '../actions';
 
+let recaptchaInstance;
+
 class Register extends Component {
   constructor(props) {
     super(props);
 
+    this.state = { robot: true };
+
     this.onSubmit = this.onSubmit.bind(this);
+    this.onVerification = this.onVerification.bind(this);
+  }
+
+  onVerification() {
+    this.setState({ robot: false });
   }
 
   onSubmit(data) {
     this.props.createBrotherhood(data, () => this.props.reset());
+    recaptchaInstance.reset();
+    this.setState({ robot: true });
   }
 
   render() {
@@ -31,7 +43,7 @@ class Register extends Component {
           <div className="columns is-centered">
             <div className="column is-half">
               <h1 className="title">Registrar Hermandad</h1>
-                <Alert />
+              <Alert />
               <form onSubmit={handleSubmit(this.onSubmit)}>
                 <Field
                   label="Nombre de la hermandad"
@@ -57,7 +69,21 @@ class Register extends Component {
                   placeholder="Fecha de creación de la hermandad"
                   component={Input}
                 />
-                <Button className="is-primary is-outlined" text="Registrar" />
+                <div className="field">
+                  <div className="control">
+                    <ReCAPTCHA
+                      ref={e => recaptchaInstance = e}
+                      sitekey="6LfeQVwUAAAAANg7cHxbWUW_PpRcRN--pEpqJ2nj"
+                      verifyCallback={this.onVerification}
+                      hl="es"
+                    />
+                  </div>
+                </div>
+                <Button
+                  disabled={this.state.robot}
+                  className="is-primary is-outlined"
+                  text="Registrar"
+                />
               </form>
             </div>
           </div>
