@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Button from '../components/Button';
-
 import { deleteBrotherhood } from '../actions';
 
 class ListItem extends Component {
@@ -24,16 +22,14 @@ class ListItem extends Component {
     return (
       <tr onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
         <td>{place}</td>
-        <td>{name}</td>
-        <td>{email}</td>
-        <td>{created}</td>
         <td>
+          {name}{' '}
           {options && (
-            <Link to={`/hermandades/${id}/edit`}>
-              <Button text="Editar" />
-            </Link>
+            <Link to={`/hermandades/${id}/edit`}>Editar</Link>
           )}
         </td>
+        <td>{email}</td>
+        <td>{created}</td>
       </tr>
     );
   }
