@@ -9,6 +9,10 @@ class Alert extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearAlert();
+  }
+
   handleClick() {
     this.props.clearAlert();
   }
